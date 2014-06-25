@@ -980,6 +980,9 @@ sgs.ai_skill_invoke.IceSword = function(self, data)
 		if target:hasShownSkill("tuntian") and target:getPhase() == sgs.Player_NotActive then return false end
 		if target:hasShownSkills(sgs.need_kongcheng) then return false end
 		if target:getCards("he"):length()<4 and target:getCards("he"):length()>1 then return true end
+		if target:hasShownSkill("mingshi") and not target:hasShownAllGenerals() then 
+			return not self.player:hasFlag("drank")
+		end
 		return false
 	end
 end
